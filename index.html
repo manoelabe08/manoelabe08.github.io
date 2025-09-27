@@ -5,99 +5,228 @@
     <title>CV Manoel Abe</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
-        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; padding: 0; background: #f4f6fb; color: #223; }
-        .cv-container { max-width: 900px; background: #fff; margin: 40px auto; box-shadow: 0 6px 20px #8881; border-radius: 10px; padding: 36px 48px; }
-        h1 { color: #234981; }
-        h2 { color: #3665b3; border-bottom: 1px solid #e2e6ee; padding-bottom: 5px; }
-        .contact span { display: inline-block; min-width: 190px; }
-        .section { margin-bottom: 28px; }
-        ul, li { margin: 0; padding: 0; }
-        .experience, .formation, .projets, .certifications { margin: 0 0 0 16px; }
-        .job-title { font-weight: bold; color: #234981;}
-        .date { color: #888; margin-left: 6px; font-size: 0.95em;}
-        .profil { background: #ecf2ff; padding: 14px; border-radius: 8px; }
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            background: #f2f4f9;
+            color: #222;
+        }
+        .cv-wrapper {
+            max-width: 1000px;
+            background: #fff;
+            margin: 40px auto;
+            box-shadow: 0 8px 32px #6d84a022;
+            border-radius: 16px;
+            display: flex;
+            overflow: hidden;
+        }
+        .cv-left {
+            background: linear-gradient(135deg, #3249a6 60%, #49dfba 100%);
+            color: #fff;
+            width: 30%;
+            min-width: 260px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 36px 24px 36px 24px;
+        }
+        .profile-pic {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            box-shadow: 0 4px 18px #23498188;
+            object-fit: cover;
+            border: 5px solid #fff;
+            margin-bottom: 24px;
+            transition: transform .2s;
+        }
+        .profile-pic:hover {
+            transform: scale(1.07) rotate(-2deg);
+        }
+        .cv-left h1 {
+            font-size: 1.8rem;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+        .cv-left .subtitle {
+            font-size: 1.06em;
+            font-weight: 300;
+            letter-spacing: .5px;
+            margin-bottom: 25px;
+        }
+        .cv-left .contact {
+            margin: 20px 0;
+            font-size: 0.99em;
+        }
+        .cv-left .contact div {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .cv-left .contact i {
+            width: 22px;
+        }
+        .cv-left .langues, .cv-left .certifications {
+            margin-top: 30px;
+        }
+        .cv-left ul {
+            list-style: none;
+            padding: 0;
+        }
+        .cv-left li {
+            margin-bottom: 7px;
+        }
+        .cv-right {
+            width: 70%;
+            padding: 48px 44px 44px 44px;
+            background: #fff;
+        }
+        h2 {
+            color: #2e4198;
+            font-size: 1.25em;
+            margin-bottom: 12px;
+            border-left: 4px solid #49dfba;
+            padding-left: 13px;
+        }
+        .section {
+            margin-bottom: 30px;
+            animation: fadeinup .8s;
+        }
+        @keyframes fadeinup {
+            from { opacity: 0; transform: translateY(18px);}
+            to { opacity: 1; transform: translateY(0);}
+        }
+        .profil {
+            font-size: 1.12em;
+            background: #f4f7fc;
+            border-left: 5px solid #49dfba;
+            margin-bottom: 25px;
+            padding: 18px 20px 18px 24px;
+            border-radius: 7px;
+        }
+        .xp-entry {
+            margin-bottom: 19px;
+        }
+        .xp-title {
+            font-weight: bold;
+            color: #234981;
+            font-size: 1em;
+        }
+        .xp-date {
+            color: #7cb;
+            font-size: .98em;
+            margin-left: 8px;
+        }
+        .xp-subtitle {
+            font-style: italic;
+            font-size: 0.98em;
+        }
+        .cv-right ul {
+            margin: 0;
+            padding: 0 0 0 16px;
+        }
+        .competences-li {
+            margin-bottom: 4px;
+        }
+        /* Responsive */
+        @media (max-width: 800px) {
+            .cv-wrapper {flex-direction: column;}
+            .cv-left, .cv-right {width: 100%; min-width: unset; border-radius: 0;}
+            .cv-right {padding: 28px 14px;}
+        }
     </style>
 </head>
 <body>
-    <div class="cv-container">
-        <h1>Manoel Abe</h1>
-        <div class="contact section">
-            <div><span>Adresse :</span> 178 Rue de Crime, Paris 78019, France</div>
-            <div><span>Téléphone :</span> +33 0746389823</div>
-            <div><span>Email :</span> abemanoel08@gmail.com</div>
-            <div><span>LinkedIn :</span> manoelabe08</div>
-            <div><span>Permis :</span> ABCDE</div>
+    <div class="cv-wrapper">
+        <div class="cv-left">
+            <img src="https://randomuser.me/api/portraits/men/99.jpg" alt="photo de profil" class="profile-pic"><!-- Remplacez l'URL par votre vraie photo -->
+            <h1>Manoel Abe</h1>
+            <div class="subtitle">Étudiant en Cybersécurité & IA</div>
+            <div class="contact">
+                <div><i>📧</i> abemanoel08@gmail.com</div>
+                <div><i>📍</i> 178 Rue de Crime, Paris 78019</div>
+                <div><i>📱</i> +33 0746389823</div>
+                <div><i>🔗</i> LinkedIn: manoelabe08</div>
+                <div><i>🚘</i> Permis ABCDE</div>
+            </div>
+            <div class="langues">
+                <h3>Langues</h3>
+                <ul>
+                    <li>Français</li>
+                    <li>Anglais</li>
+                    <li>Allemand</li>
+                </ul>
+            </div>
+            <div class="certifications">
+                <h3>Certifications</h3>
+                <ul>
+                    <li>CISCO Networking Academy</li>
+                    <li>ANSSI-MOOC Cybersécurité</li>
+                    <li>Cisco NETACAD Cybersécurité</li>
+                    <li>OpenClassrooms Développement Web</li>
+                </ul>
+            </div>
         </div>
-        <div class="section profil">
-            <strong>Profil :</strong><br>
-            Étudiant en Cybersécurité à l'ESEO Paris Vélizy. Passionné par la sécurité des systèmes d'information, aspirant analyste SOC, très intéressé par la sécurité des réseaux et des applications, l’IoT, le web et l’IA.
-        </div>
-        <div class="section">
-            <h2>Formation</h2>
-            <ul class="formation">
-                <li><strong>sept. 2025 - présent</strong> : <b>École supérieure d’électronique de l’Ouest (ESEO), Paris Vélizy</b>, Cycle Ingénieur IA & Cybersécurité</li>
-                <li><strong>2018-2022</strong> : <b>Université Virtuelle de Côte d’Ivoire</b>, Maîtrise Bac+4 en Cybersécurité & Internet des Objets, Licence Réseaux et Sécurité Informatique, Mention Assez Bien</li>
-            </ul>
-        </div>
-        <div class="section">
-            <h2>Expérience professionnelle</h2>
-            <ul class="experience">
-                <li>
-                    <span class="job-title">Chef du service informatique</span> <span class="date">EPV Bon Berger Abobo, sept. 2022 - juin 2025</span><br>
-                    Administration et gestion du système informatique de l’établissement.
-                </li>
-                <li>
-                    <span class="job-title">Volontaire - Commission NTIC</span> <span class="date">CAN 2023, 2023-2024</span><br>
-                    Assistance à la mise en place des infrastructures technologiques et gestion des systèmes de communication pendant la CAN 2023.
-                </li>
-                <li>
-                    <span class="job-title">Chargé de création / Admin site web</span> <span class="date">La Boutique d’Adjamé, fév. - nov. 2022</span><br>
-                    Création et administration du site WordPress.
-                </li>
-                <li>
-                    <span class="job-title">Technicien Réseaux</span> <span class="date">AK SECURITY, avr. - août 2021</span><br>
-                    Installation de caméras, visiophonie, câblage informatique, administration systèmes de sécurité électronique.
-                </li>
-                <li>
-                    <span class="job-title">Infographiste / Dév. web</span> <span class="date">Fondation Jeunesse Numérique, 2019-2021</span><br>
-                    Création identité visuelle (logo, cartes, sites, affiches, maquettes mobiles, e-learning, etc.)
-                </li>
-                <li>
-                    <span class="job-title">Bénévole - U-REPORT</span> <span class="date">mars 2018 - juin 2019</span><br>
-                    Sensibilisation citoyenne, initiateur de la Journée du Numérique au Féminin.
-                </li>
-                <li>
-                    <span class="job-title">Président Club Informatique</span> <span class="date">Lycée Moderne 1 Abobo, mars 2018 - juin 2019</span><br>
-                    Organisation, formation et gestion de projets de programmation et développement.
-                </li>
-            </ul>
-        </div>
-        <div class="section">
-            <h2>Compétences</h2>
-            <ul class="competences">
-                <li>Cybersécurité</li>
-                <li>Programmation web, CMS</li>
-                <li>Infographie</li>
-                <li>Administration de réseaux</li>
-                <li>Sécurité électronique</li>
-            </ul>
-        </div>
-        <div class="section">
-            <h2>Certifications</h2>
-            <ul class="certifications">
-                <li>CISCO Networking Academy</li>
-                <li>ANSSI-MOOC – Cybersécurité</li>
-                <li>Cisco NETACAD Cybersécurité</li>
-                <li>Développement web OpenClassrooms</li>
-            </ul>
-        </div>
-        <div class="section">
-            <h2>Langues</h2>
-            <ul class="langues">
-                <li>Français</li>
-                <li>Anglais</li>
-                <li>Allemand</li>
-            </ul>
+        <div class="cv-right">
+            <div class="section profil">
+                Passionné par la sécurité des systèmes d'information, aspirant analyste SOC, très intéressé par la sécurité des réseaux, des applications, l’IoT, le web et l’IA.
+            </div>
+            <div class="section">
+                <h2>Formation</h2>
+                <ul>
+                    <li><b>Sept. 2025 - présent</b> — <b>ESEO Paris Vélizy</b>, Cycle Ingénieur IA & Cybersécurité</li>
+                    <li><b>2018-2022</b> — Université Virtuelle de Côte d’Ivoire, Maîtrise Bac+4 Cybersécurité & IoT, Licence Réseaux & Sécurité Informatique, Mention Assez Bien</li>
+                </ul>
+            </div>
+            <div class="section">
+                <h2>Expérience professionnelle</h2>
+                <div class="xp-entry">
+                    <span class="xp-title">Chef du service informatique</span>
+                    <span class="xp-date">EPV Bon Berger Abobo, sept. 2022 - juin 2025</span>
+                    <div class="xp-subtitle">Administration et gestion du système informatique de l’établissement.</div>
+                </div>
+                <div class="xp-entry">
+                    <span class="xp-title">Volontaire - Commission NTIC</span>
+                    <span class="xp-date">CAN 2023, 2023-2024</span>
+                    <div class="xp-subtitle">Assistance à la mise en place des infrastructures technologiques et gestion des systèmes de communication durant la compétition.</div>
+                </div>
+                <div class="xp-entry">
+                    <span class="xp-title">Chargé de création / Admin site web</span>
+                    <span class="xp-date">La Boutique d’Adjamé, fév. - nov. 2022</span>
+                    <div class="xp-subtitle">Création et administration du site WordPress.</div>
+                </div>
+                <div class="xp-entry">
+                    <span class="xp-title">Technicien Réseaux</span>
+                    <span class="xp-date">AK SECURITY, avr. - août 2021</span>
+                    <div class="xp-subtitle">Installation de caméras, visiophonie, câblage informatique, administration systèmes de sécurité électronique.</div>
+                </div>
+                <div class="xp-entry">
+                    <span class="xp-title">Infographiste / Dév. web</span>
+                    <span class="xp-date">Fondation Jeunesse Numérique, 2019-2021</span>
+                    <div class="xp-subtitle">Création identité visuelle (logo, cartes, sites, affiches, maquettes mobiles, e-learning, etc.)</div>
+                </div>
+                <div class="xp-entry">
+                    <span class="xp-title">Bénévole - U-REPORT</span>
+                    <span class="xp-date">mars 2018 - juin 2019</span>
+                    <div class="xp-subtitle">Sensibilisation citoyenne, initiateur de la Journée du Numérique au Féminin.</div>
+                </div>
+                <div class="xp-entry">
+                    <span class="xp-title">Président Club Informatique</span>
+                    <span class="xp-date">Lycée Moderne 1 Abobo, mars 2018 - juin 2019</span>
+                    <div class="xp-subtitle">Organisation, formation et gestion de projets de programmation et développement.</div>
+                </div>
+            </div>
+            <div class="section">
+                <h2>Compétences</h2>
+                <ul>
+                    <li class="competences-li">Cybersécurité</li>
+                    <li class="competences-li">Programmation web, CMS</li>
+                    <li class="competences-li">Infographie</li>
+                    <li class="competences-li">Administration de réseaux</li>
+                    <li class="competences-li">Sécurité électronique</li>
+                </ul>
+            </div>
         </div>
     </div>
 </body>
