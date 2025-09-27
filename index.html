@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <title>CV Manoel Abe</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style>
         body {
             font-family: 'Segoe UI', Arial, sans-serif;
@@ -67,16 +67,130 @@
         .cv-left .contact i {
             width: 22px;
         }
-        .cv-left .langues, .cv-left .certifications {
+        /* Styles pour la section réseaux sociaux */
+        .socials {
+            display: flex;
+            gap: 24px;
             margin-top: 30px;
+            width: 100%;
+            justify-content: center;
         }
-        .cv-left ul {
-            list-style: none;
-            padding: 0;
+        .social-column {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
         }
-        .cv-left li {
-            margin-bottom: 7px;
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: #3e52ad;
+            border-radius: 8px;
+            padding: 8px 12px;
+            font-weight: bold;
+            color: #fff;
+            text-decoration: none;
+            transition: background 0.25s ease;
         }
+        .social-link img {
+            width: 24px;
+            height: 24px;
+            border-radius: 4px;
+            background: #fff;
+        }
+        .social-link:hover {
+            background: #3249a6;
+        }
+        /* Langues */
+        .langues {
+            margin-top: 30px;
+            width: 100%;
+        }
+        .langue-bar {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            gap: 10px;
+        }
+        .langue-label {
+            min-width: 80px;
+            font-weight: bold;
+        }
+        .bar-bg {
+            background: #e6ecef;
+            border-radius: 7px;
+            width: 100px;
+            height: 10px;
+            overflow: hidden;
+        }
+        .bar-fg {
+            height: 100%;
+            background: #49dfba;
+            border-radius: 7px;
+            transition: width .4s;
+        }
+        .bar-text {
+            font-size: 0.92em;
+            margin-left: 8px;
+            width:34px;
+        }
+        /* Certifications */
+        .certifications {
+            margin-top: 30px;
+            width: 100%;
+        }
+        .certif-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            gap: 13px;
+        }
+        .certif-item-logo {
+            min-width: 28px;
+            min-height: 28px;
+            border-radius: 50%;
+            background: #fff;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 1px 6px #1a4a5077;
+            font-size: 20px;
+        }
+        .certif-item-logo img {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display:block;
+        }
+        .certif-item-content {
+            display: flex;
+            flex-direction: column;
+        }
+        .certif-title {
+            font-weight: bold; text-transform: uppercase; font-size: 1em;
+            color: #fff;
+        }
+        .certif-org {
+            font-style: italic; font-size: 0.95em; color: #d1e1e8;
+        }
+        /* Bouton téléchargement */
+        .download-cv-action {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 13px 24px;
+            background: #49dfba;
+            color: #fff;
+            font-weight: bold;
+            border-radius: 22px;
+            font-size: 1.07em;
+            border: none;
+            text-decoration: none;
+            transition: background .3s, box-shadow .18s;
+            box-shadow: 0 2px 14px #49dfba57;
+            cursor: pointer;
+        }
+        .download-cv-action:hover {
+            background: #3249a6;
+        }
+        /* Partie droite */
         .cv-right {
             width: 70%;
             padding: 48px 44px 44px 44px;
@@ -105,15 +219,34 @@
             padding: 18px 20px 18px 24px;
             border-radius: 7px;
         }
-        .xp-entry {
-            margin-bottom: 19px;
+        .list-cv {
+            list-style: none;
+            margin: 0; padding: 0;
         }
-        .xp-title {
-            font-weight: bold;
-            color: #234981;
-            font-size: 1em;
+        .cv-bullet {
+            display: flex; align-items: flex-start; gap: 18px; margin-bottom: 21px;
         }
-        .xp-date {
+        .cv-bullet .circle {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: #eee;
+            border: 2.5px solid #49dfba;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink:0;
+        }
+        .cv-bullet .circle img {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display:block;
+        }
+        .xp-title, .formation-title {
+            font-weight: bold; color: #234981; font-size: 1em;
+        }
+        .xp-date, .formation-date {
             color: #7cb;
             font-size: .98em;
             margin-left: 8px;
@@ -122,25 +255,136 @@
             font-style: italic;
             font-size: 0.98em;
         }
-        .cv-right ul {
-            margin: 0;
-            padding: 0 0 0 16px;
+        /* Compétences en deux colonnes */
+        .competences-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px 35px;
         }
         .competences-li {
             margin-bottom: 4px;
         }
-        /* Responsive */
+
+
+        /* Projets / Réalisations */
+        .projects-section {
+            margin-top: 30px;
+        }
+        .projects-title {
+            color: #2e4198;
+            font-size: 1.23em;
+            margin-bottom: 12px;
+            border-left: 4px solid #49dfba;
+            padding-left: 13px;
+        }
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+        .project-card {
+            background: #f4f7fc;
+            border-radius: 14px;
+            box-shadow: 0 2px 11px #23498122;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            min-height: 200px;
+            position: relative;
+        }
+        .project-card img {
+            width: 56px;
+            height: 56px;
+            margin-bottom: 11px;
+            border-radius: 8px;
+            object-fit: cover;
+            box-shadow: 0 1px 7px #23498144;
+        }
+        .project-desc {
+            margin: 2px 0 7px 0;
+        }
+        .voir-plus-btn {
+            background: #49dfba;
+            color: #fff;
+            border: none;
+            border-radius: 7px;
+            font-size: 0.97em;
+            padding: 6px 14px;
+            cursor: pointer;
+            margin-top: 2px;
+            transition: background .17s;
+        }
+        .voir-plus-btn:hover {
+            background: #3249a6;
+        }
+        /* Popup overlay */
+        .popup-overlay {
+            display: none;
+            position: fixed;
+            z-index: 999;
+            left: 0; top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(44,54,94,.53);
+            justify-content: center;
+            align-items: center;
+        }
+        .popup-content {
+            background: #fff;
+            border-radius: 12px;
+            max-width: 380px;
+            font-size: 1.05em;
+            color: #222;
+            box-shadow: 0 2px 19px #3249a688;
+            text-align: left;
+            padding: 24px 25px;
+            margin: 16px;
+        }
+        .close-popup {
+            margin-top: 12px;
+            text-align: right;
+        }
+        .close-popup button {
+            background: #49dfba;
+            color: #fff;
+            border: none;
+            border-radius: 7px;
+            font-size: 0.96em;
+            padding: 6px 15px;
+            cursor: pointer;
+            transition: background .17s;
+        }
+        .close-popup button:hover {
+            background: #3249a6;
+        }
+
+        @media (max-width: 900px) {
+            .projects-grid { grid-template-columns: 1fr;}
+            .competences-list {
+                grid-template-columns: 1fr;
+            }
+            .socials {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+
         @media (max-width: 800px) {
             .cv-wrapper {flex-direction: column;}
             .cv-left, .cv-right {width: 100%; min-width: unset; border-radius: 0;}
             .cv-right {padding: 28px 14px;}
         }
+
+
+
     </style>
 </head>
 <body>
     <div class="cv-wrapper">
         <div class="cv-left">
-            <img src="https://randomuser.me/api/portraits/men/99.jpg" alt="photo de profil" class="profile-pic"><!-- Remplacez l'URL par votre vraie photo -->
+            <img src="https://randomuser.me/api/portraits/men/99.jpg" alt="photo de profil" class="profile-pic" />
             <h1>Manoel Abe</h1>
             <div class="subtitle">Étudiant en Cybersécurité & IA</div>
             <div class="contact">
@@ -149,77 +393,198 @@
                 <div><i>📱</i> +33 0746389823</div>
                 <div><i>🔗</i> LinkedIn: manoelabe08</div>
                 <div><i>🚘</i> Permis ABCDE</div>
+                 <div class="socials">
+                <div class="social-column">
+                    <a href="https://www.linkedin.com/in/manoelabe08/" target="_blank" class="social-link">
+                        <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn">
+                        LinkedIn
+                    </a>
+                    <a href="https://www.behance.net/manoelabe1/" target="_blank" class="social-link">
+                        <img src="https://cdn-icons-png.flaticon.com/512/1183/1183653.png" alt="Behance">
+                        Behance
+                    </a>
+                </div>
+                <div class="social-column">
+                    <a href="https://github.com/manoelabe08/" target="_blank" class="social-link">
+                        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111432.png" alt="GitHub">
+                        MyGitHub
+                    </a>
+                    <a href="https://api.whatsapp.com/send?phone=+330746389823&text=Bonjour%20j'ai%20apprecier%20votre%20cv%20en%20ligne%20et%20je%20vous%20contacte%20pour%20une%20opportunites3" target="_blank" class="social-link">
+                        <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp">
+                        WhatsApp
+                    </a>
+                </div>
             </div>
+            </div>
+
             <div class="langues">
                 <h3>Langues</h3>
-                <ul>
-                    <li>Français</li>
-                    <li>Anglais</li>
-                    <li>Allemand</li>
-                </ul>
+                <div class="langue-bar">
+                    <span class="langue-label">Français</span>
+                    <div class="bar-bg"><div class="bar-fg" style="width:100%;background:linear-gradient(90deg,#49dfba 70%,#3249a6 100%);"></div></div>
+                    <span class="bar-text">100%</span>
+                </div>
+                <div class="langue-bar">
+                    <span class="langue-label">Anglais</span>
+                    <div class="bar-bg"><div class="bar-fg" style="width:35%;"></div></div>
+                    <span class="bar-text">35%</span>
+                </div>
+                <div class="langue-bar">
+                    <span class="langue-label">Allemand</span>
+                    <div class="bar-bg"><div class="bar-fg" style="width:20%;background:#b2c7da;"></div></div>
+                    <span class="bar-text">20%</span>
+                </div>
             </div>
+
+            <!-- Certifications d'origine -->
             <div class="certifications">
                 <h3>Certifications</h3>
-                <ul>
-                    <li>CISCO Networking Academy</li>
-                    <li>ANSSI-MOOC Cybersécurité</li>
-                    <li>Cisco NETACAD Cybersécurité</li>
-                    <li>OpenClassrooms Développement Web</li>
-                </ul>
+                <div class="certif-item">
+                    <span class="certif-item-logo" title="CISCO">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/47/Cisco_logo_blue_2016.svg" alt="Logo Cisco">
+                    </span>
+                    <span class="certif-item-content">
+                        <span class="certif-title">CISCO NETWORKING ACADEMY</span>
+                        <span class="certif-org">Cisco</span>
+                    </span>
+                </div>
+                <div class="certif-item">
+                    <span class="certif-item-logo" title="ANSSI">
+                        <img src="https://www.ssi.gouv.fr/uploads/2015/09/anssi-logo.svg" alt="Logo ANSSI">
+                    </span>
+                    <span class="certif-item-content">
+                        <span class="certif-title">ANSSI-MOOC CYBERSÉCURITÉ</span>
+                        <span class="certif-org">ANSSI</span>
+                    </span>
+                </div>
+                <div class="certif-item">
+                    <span class="certif-item-logo" title="CISCO">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/47/Cisco_logo_blue_2016.svg" alt="Logo Cisco">
+                    </span>
+                    <span class="certif-item-content">
+                        <span class="certif-title">CISCO NETACAD CYBERSÉCURITÉ</span>
+                        <span class="certif-org">Cisco</span>
+                    </span>
+                </div>
+                <div class="certif-item">
+                    <span class="certif-item-logo" title="OpenClassrooms">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/1/1e/OpenClassrooms_Logo.png" alt="Logo OpenClassrooms">
+                    </span>
+                    <span class="certif-item-content">
+                        <span class="certif-title">DÉVELOPPEMENT WEB</span>
+                        <span class="certif-org">OpenClassrooms</span>
+                    </span>
+                </div>
+                <a class="download-cv-action" href="CV-MANOEL-ABE.pdf" download="CV-MANOEL-ABE.pdf">Prendre la version web de ce CV</a>
             </div>
         </div>
+
         <div class="cv-right">
             <div class="section profil">
                 Passionné par la sécurité des systèmes d'information, aspirant analyste SOC, très intéressé par la sécurité des réseaux, des applications, l’IoT, le web et l’IA.
             </div>
             <div class="section">
                 <h2>Formation</h2>
-                <ul>
-                    <li><b>Sept. 2025 - présent</b> — <b>ESEO Paris Vélizy</b>, Cycle Ingénieur IA & Cybersécurité</li>
-                    <li><b>2018-2022</b> — Université Virtuelle de Côte d’Ivoire, Maîtrise Bac+4 Cybersécurité & IoT, Licence Réseaux & Sécurité Informatique, Mention Assez Bien</li>
+                <ul class="list-cv">
+                    <li class="cv-bullet">
+                        <span class="circle">
+                            <img src="https://eseo.fr/wp-content/uploads/2021/07/logo-eseo.png" alt="logo ESEO">
+                        </span>
+                        <div>
+                            <span class="formation-title">Sept. 2025 - présent – ESEO Paris Vélizy</span>
+                            <span class="formation-date">Cycle Ingénieur IA & Cybersécurité</span>
+                        </div>
+                    </li>
+                    <li class="cv-bullet">
+                        <span class="circle">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/f/fc/Logo_Universit%C3%A9_Virtuelle_de_C%C3%B4te_d%E2%80%99Ivoire.png" alt="logo UVCI" />
+                        </span>
+                        <div>
+                            <span class="formation-title">2018-2022 – Univ. Virtuelle de Côte d’Ivoire</span>
+                            <span class="formation-date">Maîtrise Bac+4 Cybersécurité & IoT, Licence Réseaux et Sécurité Informatique, Mention Assez Bien</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Expérience professionnelle</h2>
+                <ul class="list-cv">
+                    <li class="cv-bullet">
+                        <span class="circle">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Font_Awesome_5_solid_laptop-code.svg" alt="logo informatique" />
+                        </span>
+                        <div>
+                            <span class="xp-title">Chef du service informatique</span>
+                            <span class="xp-date">EPV Bon Berger Abobo, sept. 2022 - juin 2025</span>
+                            <div class="xp-subtitle">Administration et gestion du système informatique de l’établissement.</div>
+                        </div>
+                    </li>
+                    <li class="cv-bullet">
+                        <span class="circle">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Font_Awesome_5_solid_users.svg" alt="logo commission" />
+                        </span>
+                        <div>
+                            <span class="xp-title">Volontaire - Commission NTIC</span>
+                            <span class="xp-date">CAN 2023, 2023-2024</span>
+                            <div class="xp-subtitle">Assistance à la mise en place d'infrastructures technologiques et gestion des systèmes de communication durant la compétition.</div>
+                        </div>
+                    </li>
+                    <li class="cv-bullet">
+                        <span class="circle">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Font_Awesome_5_solid_globe.svg" alt="logo web" />
+                        </span>
+                        <div>
+                            <span class="xp-title">Chargé de création / Admin site web</span>
+                            <span class="xp-date">La Boutique d’Adjamé, fév. - nov. 2022</span>
+                            <div class="xp-subtitle">Création et administration du site WordPress.</div>
+                        </div>
+                    </li>
+                    <li class="cv-bullet">
+                        <span class="circle">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Font_Awesome_5_solid_network-wired.svg" alt="logo réseaux" />
+                        </span>
+                        <div>
+                            <span class="xp-title">Technicien Réseaux</span>
+                            <span class="xp-date">AK SECURITY, avr. - août 2021</span>
+                            <div class="xp-subtitle">Installation de caméras, visiophonie, câblage informatique, administration systèmes de sécurité électronique.</div>
+                        </div>
+                    </li>
+                    <li class="cv-bullet">
+                        <span class="circle">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6d/Font_Awesome_5_solid_paint-brush.svg" alt="logo infographie" />
+                        </span>
+                        <div>
+                            <span class="xp-title">Infographiste / Dév. web</span>
+                            <span class="xp-date">Fondation Jeunesse Numérique, 2019-2021</span>
+                            <div class="xp-subtitle">Création identité visuelle (logo, cartes, sites, affiches, maquettes mobiles, e-learning, etc.)</div>
+                        </div>
+                    </li>
+                    <li class="cv-bullet">
+                        <span class="circle">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Font_Awesome_5_solid_users.svg" alt="logo bénévolat" />
+                        </span>
+                        <div>
+                            <span class="xp-title">Bénévole - U-REPORT</span>
+                            <span class="xp-date">mars 2018 - juin 2019</span>
+                            <div class="xp-subtitle">Sensibilisation citoyenne, initiateur de la Journée du Numérique au Féminin.</div>
+                        </div>
+                    </li>
+                    <li class="cv-bullet">
+                        <span class="circle">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Font_Awesome_5_solid_users.svg" alt="logo club info" />
+                        </span>
+                        <div>
+                            <span class="xp-title">Président Club Informatique</span>
+                            <span class="xp-date">Lycée Moderne 1 Abobo, mars 2018 - juin 2019</span>
+                            <div class="xp-subtitle">Organisation, formation et gestion de projets de programmation et développement.</div>
+                        </div>
+                    </li>
                 </ul>
             </div>
             <div class="section">
-                <h2>Expérience professionnelle</h2>
-                <div class="xp-entry">
-                    <span class="xp-title">Chef du service informatique</span>
-                    <span class="xp-date">EPV Bon Berger Abobo, sept. 2022 - juin 2025</span>
-                    <div class="xp-subtitle">Administration et gestion du système informatique de l’établissement.</div>
-                </div>
-                <div class="xp-entry">
-                    <span class="xp-title">Volontaire - Commission NTIC</span>
-                    <span class="xp-date">CAN 2023, 2023-2024</span>
-                    <div class="xp-subtitle">Assistance à la mise en place des infrastructures technologiques et gestion des systèmes de communication durant la compétition.</div>
-                </div>
-                <div class="xp-entry">
-                    <span class="xp-title">Chargé de création / Admin site web</span>
-                    <span class="xp-date">La Boutique d’Adjamé, fév. - nov. 2022</span>
-                    <div class="xp-subtitle">Création et administration du site WordPress.</div>
-                </div>
-                <div class="xp-entry">
-                    <span class="xp-title">Technicien Réseaux</span>
-                    <span class="xp-date">AK SECURITY, avr. - août 2021</span>
-                    <div class="xp-subtitle">Installation de caméras, visiophonie, câblage informatique, administration systèmes de sécurité électronique.</div>
-                </div>
-                <div class="xp-entry">
-                    <span class="xp-title">Infographiste / Dév. web</span>
-                    <span class="xp-date">Fondation Jeunesse Numérique, 2019-2021</span>
-                    <div class="xp-subtitle">Création identité visuelle (logo, cartes, sites, affiches, maquettes mobiles, e-learning, etc.)</div>
-                </div>
-                <div class="xp-entry">
-                    <span class="xp-title">Bénévole - U-REPORT</span>
-                    <span class="xp-date">mars 2018 - juin 2019</span>
-                    <div class="xp-subtitle">Sensibilisation citoyenne, initiateur de la Journée du Numérique au Féminin.</div>
-                </div>
-                <div class="xp-entry">
-                    <span class="xp-title">Président Club Informatique</span>
-                    <span class="xp-date">Lycée Moderne 1 Abobo, mars 2018 - juin 2019</span>
-                    <div class="xp-subtitle">Organisation, formation et gestion de projets de programmation et développement.</div>
-                </div>
-            </div>
-            <div class="section">
                 <h2>Compétences</h2>
-                <ul>
+                <ul class="competences-list">
                     <li class="competences-li">Cybersécurité</li>
                     <li class="competences-li">Programmation web, CMS</li>
                     <li class="competences-li">Infographie</li>
@@ -227,6 +592,67 @@
                     <li class="competences-li">Sécurité électronique</li>
                 </ul>
             </div>
+            <!-- Ajoutez ici la partie Projets / Réalisations si souhaitée -->
+              <!-- Projets / Réalisations -->
+            <div class="projects-section">
+                <h2 class="projects-title">Projets / Réalisations</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <img src="image1.jpg" alt="Projet 1" />
+                        <div class="project-desc">Détection d'intrusions IoT - Application Python pour monitorer les accès sur réseau domotique.</div>
+                        <button class="voir-plus-btn" onclick="openPopup(0)">Voir plus</button>
+                    </div>
+                    <div class="project-card">
+                        <img src="image2.jpg" alt="Projet 2" />
+                        <div class="project-desc">Site portail pour association sportive - WordPress, système sécurisé pour gestion des membres.</div>
+                        <button class="voir-plus-btn" onclick="openPopup(1)">Voir plus</button>
+                    </div>
+                    <div class="project-card">
+                        <img src="image3.jpg" alt="Projet 3" />
+                        <div class="project-desc">Création d'un bot analyste de fichiers logs pour archiver et alerter sur cybermenaces.</div>
+                        <button class="voir-plus-btn" onclick="openPopup(2)">Voir plus</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Popup -->
+    <div id="popup-overlay" class="popup-overlay">
+        <div class="popup-content" id="popup-content"></div>
+        <div class="close-popup"><button onclick="closePopup()">Fermer</button></div>
+    </div>
+    <script>
+        const descriptions = [
+            "Projet : Détection d'intrusions IoT. Développement d'une application Python pour surveiller, logger et réagir automatiquement aux tentatives suspectes sur le réseau domotique.",
+            "Projet : Site association sportive. Réalisation d'un portail WordPress avec gestion d'accès, profils membres et sécurité renforcée des données personnelles.",
+            "Projet : Bot analyste de logs. Conception d'un bot Python capable d'analyser des logs système, détecter les incidents et générer des alertes pour suivi SOC."
+        ];
+        function openPopup(idx) {
+            document.getElementById('popup-content').innerText = descriptions[idx];
+            document.getElementById('popup-overlay').style.display = 'flex';
+        }
+        function closePopup() {
+            document.getElementById('popup-overlay').style.display = 'none';
+        }
+
+
+         // Progress Bar
+      document.querySelectorAll(".skills-prog ul li").forEach(function (el) {
+        let percent = el.getAttribute("data-percent");
+        el.querySelector(".bar").style.width = percent + "%";
+      });
+
+      // Software Skills
+      document.querySelectorAll(".skills-soft ul li").forEach(function (el) {
+        let percent = el.getAttribute("data-percent");
+        let r = el.querySelector(".cbar").r.baseVal.value;
+        let c = Math.PI * (r * 2);
+        let pct = ((100 - percent) / 100) * c;
+        el.querySelector(".cbar").style.strokeDashoffset = pct;
+        el.querySelector(".cbar").style.strokeDasharray = c;
+      });
+
+    </script>
         </div>
     </div>
 </body>
