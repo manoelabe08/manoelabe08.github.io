@@ -5,6 +5,41 @@
     <title>CV Manoel Abe</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style>
+.competences-li {
+    position: relative;
+    padding-left: 48px;
+    font-weight: 600;
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center; /* Aligne verticalement le cercle et le texte */
+    gap: 12px;
+}
+
+.competences-li svg {
+    position: absolute;
+    left: 2px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    fill: none;
+    display: flex;
+    align-items: center; /* Aligne verticalement le cercle et le texte */
+    gap: 12px;
+}
+
+.cbar-bg {
+    stroke: #e6ecef;
+    stroke-width: 5;
+}
+
+.cbar {
+    stroke: #49dfba;
+    stroke-width: 5;
+    stroke-linecap: round;
+    transition: stroke-dashoffset 0.5s ease;
+}
+
         body {
             font-family: 'Segoe UI', Arial, sans-serif;
             margin: 0;
@@ -19,6 +54,9 @@
             border-radius: 16px;
             display: flex;
             overflow: hidden;
+            position: relative;
+  background: #fff url('URL_DESIGN_RESEAU.svg') no-repeat center;
+  background-size: cover;
         }
         .cv-left {
             background: linear-gradient(135deg, #3249a6 60%, #49dfba 100%);
@@ -145,18 +183,19 @@
             margin-bottom: 15px;
             gap: 13px;
         }
+
         .certif-item-logo {
-            min-width: 28px;
-            min-height: 28px;
+            min-width: 47.6px;
+            min-height: 47.6px;
             border-radius: 50%;
             background: #fff;
             display: flex; align-items: center; justify-content: center;
             box-shadow: 0 1px 6px #1a4a5077;
-            font-size: 20px;
+            font-size: 34px;
         }
         .certif-item-logo img {
-            width: 28px;
-            height: 28px;
+            width: 47.6px;
+            height: 47.6px;
             border-radius: 50%;
             display:block;
         }
@@ -255,10 +294,9 @@
             font-style: italic;
             font-size: 0.98em;
         }
-        /* Compétences en deux colonnes */
         .competences-list {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: 1fr;
             gap: 10px 35px;
         }
         .competences-li {
@@ -393,7 +431,7 @@
                 <div><i>📱</i> +33 0746389823</div>
                 <div><i>🔗</i> LinkedIn: manoelabe08</div>
                 <div><i>🚘</i> Permis ABCDE</div>
-                 <div class="socials">
+                <div class="socials">
                 <div class="social-column">
                     <a href="https://www.linkedin.com/in/manoelabe08/" target="_blank" class="social-link">
                         <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn">
@@ -435,48 +473,49 @@
                     <span class="bar-text">20%</span>
                 </div>
             </div>
+      <div class="la">
+    <h3>Compétences</h3>
+    <ul class="competences-list skills-soft">
+        <span class="competences-li" data-percent="70">
+            Cybersécurité
+            <svg viewBox="0 0 36 36" class="progress-circle">
+                <circle class="cbar-bg" cx="18" cy="18" r="15.9155" />
+                <circle class="cbar" cx="18" cy="18" r="15.9155" />
+            </svg>
+        </span>
+        <span class="competences-li" data-percent="70">
+            Programmation web, CMS
+            <svg viewBox="0 0 36 36" class="progress-circle">
+                <circle class="cbar-bg" cx="18" cy="18" r="15.9155" />
+                <circle class="cbar" cx="18" cy="18" r="15.9155" />
+            </svg>
+        </span>
+        <span class="competences-li" data-percent="70">
+            Infographie
+            <svg viewBox="0 0 36 36" class="progress-circle">
+                <circle class="cbar-bg" cx="18" cy="18" r="15.9155" />
+                <circle class="cbar" cx="18" cy="18" r="15.9155" />
+            </svg>
+        </span>
+        <span class="competences-li" data-percent="70">
+            Administration de réseaux
+            <svg viewBox="0 0 36 36" class="progress-circle">
+                <circle class="cbar-bg" cx="18" cy="18" r="15.9155" />
+                <circle class="cbar" cx="18" cy="18" r="15.9155" />
+            </svg>
+        </span>
+        <span class="competences-li" data-percent="70">
+            Sécurité électronique
+            <svg viewBox="0 0 36 36" class="progress-circle">
+                <circle class="cbar-bg" cx="18" cy="18" r="15.9155" />
+                <circle class="cbar" cx="18" cy="18" r="15.9155" />
+            </svg>
+        </span>
+    </ul>
+</div>
+<a class="download-cv-action" href="CV-MANOEL-ABE.pdf" download="CV-MANOEL-ABE.pdf">Télécharger mon CV</a>
 
-            <!-- Certifications d'origine -->
-            <div class="certifications">
-                <h3>Certifications</h3>
-                <div class="certif-item">
-                    <span class="certif-item-logo" title="CISCO">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/47/Cisco_logo_blue_2016.svg" alt="Logo Cisco">
-                    </span>
-                    <span class="certif-item-content">
-                        <span class="certif-title">CISCO NETWORKING ACADEMY</span>
-                        <span class="certif-org">Cisco</span>
-                    </span>
-                </div>
-                <div class="certif-item">
-                    <span class="certif-item-logo" title="ANSSI">
-                        <img src="https://www.ssi.gouv.fr/uploads/2015/09/anssi-logo.svg" alt="Logo ANSSI">
-                    </span>
-                    <span class="certif-item-content">
-                        <span class="certif-title">ANSSI-MOOC CYBERSÉCURITÉ</span>
-                        <span class="certif-org">ANSSI</span>
-                    </span>
-                </div>
-                <div class="certif-item">
-                    <span class="certif-item-logo" title="CISCO">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/47/Cisco_logo_blue_2016.svg" alt="Logo Cisco">
-                    </span>
-                    <span class="certif-item-content">
-                        <span class="certif-title">CISCO NETACAD CYBERSÉCURITÉ</span>
-                        <span class="certif-org">Cisco</span>
-                    </span>
-                </div>
-                <div class="certif-item">
-                    <span class="certif-item-logo" title="OpenClassrooms">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/1/1e/OpenClassrooms_Logo.png" alt="Logo OpenClassrooms">
-                    </span>
-                    <span class="certif-item-content">
-                        <span class="certif-title">DÉVELOPPEMENT WEB</span>
-                        <span class="certif-org">OpenClassrooms</span>
-                    </span>
-                </div>
-                <a class="download-cv-action" href="CV-MANOEL-ABE.pdf" download="CV-MANOEL-ABE.pdf">Prendre la version web de ce CV</a>
-            </div>
+
         </div>
 
         <div class="cv-right">
@@ -582,17 +621,8 @@
                     </li>
                 </ul>
             </div>
-            <div class="section">
-                <h2>Compétences</h2>
-                <ul class="competences-list">
-                    <li class="competences-li">Cybersécurité</li>
-                    <li class="competences-li">Programmation web, CMS</li>
-                    <li class="competences-li">Infographie</li>
-                    <li class="competences-li">Administration de réseaux</li>
-                    <li class="competences-li">Sécurité électronique</li>
-                </ul>
-            </div>
-            <!-- Ajoutez ici la partie Projets / Réalisations si souhaitée -->
+
+<!-- Ajoutez ici la partie Projets / Réalisations si souhaitée -->
               <!-- Projets / Réalisations -->
             <div class="projects-section">
                 <h2 class="projects-title">Projets / Réalisations</h2>
@@ -637,7 +667,7 @@
 
 
          // Progress Bar
-      document.querySelectorAll(".skills-prog ul li").forEach(function (el) {
+      document.querySelectorAll(".skills-prog ul span").forEach(function (el) {
         let percent = el.getAttribute("data-percent");
         el.querySelector(".bar").style.width = percent + "%";
       });
@@ -651,6 +681,17 @@
         el.querySelector(".cbar").style.strokeDashoffset = pct;
         el.querySelector(".cbar").style.strokeDasharray = c;
       });
+document.querySelectorAll(".skills-soft span").forEach(function (el) {
+    let percent = el.getAttribute("data-percent");
+    let circle = el.querySelector(".cbar");
+    if (circle) {
+        const r = circle.r.baseVal.value;
+        const c = 2 * Math.PI * r;
+        const pct = ((100 - percent) / 100) * c;
+        circle.style.strokeDasharray = c;
+        circle.style.strokeDashoffset = pct;
+    }
+});
 
     </script>
         </div>
